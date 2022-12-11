@@ -1,0 +1,20 @@
+.login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 500px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(76, 186, 250, 0.562));
+    border-radius: 20px;
+    box-shadow: 0 3px 5px grey;
+
+}
+.m1{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

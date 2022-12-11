@@ -1,38 +1,418 @@
-.App {
-  text-align: center;
+.navbar {
+    position: fixed;
+    display: flex;
+    height: 95px;
+    width: 100%;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(3, 157, 247, 0.562));
+    box-shadow: 0 2px 5px grey;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.policelogo {
+    position: absolute;
+    display: inline-block;
+    margin-left: 10px;
+    height: 80px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section {
+    height: 50px;
+    display: flex;
+    /* padding-top: 20px; */
+    position: absolute;
+    right: 40px;
+    top: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.select {
+    margin-right: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.navbutton {
+    height: 38px;
+    background-color: rgb(6, 137, 245) !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar {
+    position: fixed;
+    padding-top: 10px;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(76, 186, 250, 0.562));
+    /* background-color: aliceblue; */
+    width: 250px;
+    box-shadow: 0 2px 5px inset grey;
+    overflow: scroll;
+    padding-bottom: 100px;
 }
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.sidebar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.sidebarbuttons {
+    width: 100%;
+    border-radius: 25px !important;
+    height: 45px;
+    margin-top: 10px !important;
+    font-size: larger;
+    border-radius: 10px;
+    font-size: large !important;
+    background-color: rgb(86, 162, 224) !important;
+}
+
+.dropdown {
+    margin-bottom: 15px;
+}
+
+.accordion {
+    background-color: rgb(86, 162, 224);
+    width: 100%;
+    height: 50px;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+    border-radius: 25px;
+    text-align: center;
+    /* overflow: hidden; */
+}
+
+.accordion__label,
+.accordion__content {
+    padding: 10px 20px;
+}
+
+.accordion__label {
+    display: block;
+    color: black;
+    font-weight: 500;
+    font-size: large;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+    border-radius: 25px;
+}
+
+.accordion__label:hover {
+    background-color: rgb(86, 162, 224);
+    border-radius: 25px;
+}
+
+.accordion__label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+    background-size: contain;
+    transition: transform 0.4s;
+    z-index: 0;
+}
+
+.accordion__content {
+    width: 90%;
+    background-color: aliceblue;
+    display: none;
+    border-radius: 20px;
+    margin-top: 10px;
+    transition: all 2s;
+}
+
+.accordion__input {
+    display: none;
+}
+
+.accordion__input:checked~.accordion__content {
+    display: block;
+}
+
+.accordion__input:checked~.accordion__label::after {
+    transform: translateY(-50%) rotate(0.5turn);
+}
+
+.accordion_input:checked~.accordion_input {
+    margin-bottom: 200px;
+}
+
+.menuchild {
+    width: 200px;
+    margin: auto;
+    margin-bottom: 10px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(78, 161, 230) !important;
+}
+
+
+/* revanth */
+
+.comission_add_box {
+    height: 16rem;
+    width: 30rem;
+    padding: 2rem;
+    background-color: #5f9de9;
+    box-shadow: 1px 1px 10px black;
+    border-radius: 10px;
+}
+
+.commission_div {
+    height: 10rem;
+    width: 20rem;
+    background-color: #5f9de9;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 1px 1px 5px black;
+    overflow-wrap: break-word;
+    justify-content: flex-start;
+    padding-left: 2rem;
+}
+
+.officer_div {
+    height: 20rem;
+    width: 23rem;
+    background: linear-gradient(to top, rgba(76, 186, 250, 0.562), rgba(131, 205, 248, 0.562), white);
+    margin: 2rem;
+    overflow-wrap: break-word;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 1px 1px 5px black;
+    padding-left: 1rem;
+}
+
+.comission_view_div {
+    position: fixed;
+    width: fill;
+    height: fill;
+    overflow-y: scroll;
+    margin-left: 16%;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, 22rem);
+    grid-template-rows: repeat(auto-fit, 11rem);
+}
+
+.user_add_box {
+    height: auto;
+    width: 50%;
+    min-width: 20rem;
+    background-color: #5f9de9;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    display: block;
+    padding: 2%;
+}
+
+.officer_view_div {
+    position: fixed;
+    height: fill;
+    width: fill;
+    margin-left: 16%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 24rem);
+    grid-template-rows: repeat(auto-fit, 21rem);
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    justify-content: center;
+}
+
+.officer_add_box {
+    height: auto;
+    width: 50%;
+    min-width: 20rem;
+    background-color: #56A2E0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    justify-content: space-around;
+    display: block;
+    padding: 2%;
+}
+
+.content_div {
+    position: fixed;
+    height: fill;
+    width: fill;
+    margin-left: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hometable td,
+th {
+    border: 1px solid rgb(70, 67, 67);
+    text-align: left;
+    padding: 8px;
+}
+
+.hometable th {
+    background-color: #976e6e;
+}
+
+.hometable tr:nth-child(even) {
+    background-color: #FF4646;
+}
+
+.hometable tr:nth-child(odd) {
+    background-color: #FF8585;
+}
+
+.assignform {
+    height: auto;
+    width: 50%;
+    min-width: 20rem;
+    background-color: rgba(3, 157, 247, 0.562);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    justify-content: space-around;
+    display: block;
+    padding: 2%;
+    margin-top: 40px;
+}
+
+.as1 {
+    margin-bottom: 20px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.form-1 {
+    width: 80%;
+    margin: auto;
+    padding: 5rem;
+    background-color: skyblue;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgb(46, 45, 45);
+}
+
+.user_div {
+    height: 20rem;
+    width: 23rem;
+    background: linear-gradient(to top, rgba(76, 186, 250, 0.562), rgba(131, 205, 248, 0.562), white);
+    margin: 2rem;
+    overflow-wrap: break-word;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 1px 1px 5px black;
+}
+
+.userviewtext {
+    text-align: left;
+    font-weight: 600;
+    font-size: large;
+}
+
+.hometable1 {
+    padding: 40px;
+    width: 100%;
+    overflow-y: scroll;
+    /* background-color: aqua; */
+}
+
+.commissionmain {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 250px;
+    width: fill;
+    height: fill;
+}
+
+.commissionadddiv {
+    width: 450px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    background-color: rgba(3, 157, 247, 0.562);
+    box-shadow: 0 0 10px grey;
+}
+
+.commissionview {
+    position: fixed;
+    padding: 30px;
+    margin-left: 250px;
+    height: fill;
+    text-align: center;
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+/* hide scrollbar  */
+
+.commissionview::-webkit-scrollbar {
+    display: none;
+}
+
+.commissionview {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.caption {
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.s11 {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    /* margin: auto 0; */
+}
+
+.commission_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.commission_child {
+    height: 150px;
+    width: 29%;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px grey;
+    /* background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(76, 186, 250, 0.562)); */
+    background: linear-gradient(to top, rgba(76, 186, 250, 0.562), rgba(131, 205, 248, 0.562), white);
+    text-align: left;
+    margin: 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.commissionbtn {
+    border-radius: 10px !important;
+    background-color: rgb(32, 146, 240) !important;
+    /* background-color: rgba(48, 115, 153, 0.562) !important; */
+    text-transform: none !important;
+}
+
+
+/* @media print {
+    .tabledata {
+        display: inline-block;
+    }
+} */
